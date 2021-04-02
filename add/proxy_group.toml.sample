@@ -1,0 +1,12 @@
+[Proxy Group]
+💴 PROXY = select, MIX, HK, HK2
+Proxy = select, 💴 PROXY, 🇸🇬 PROXY
+🇸🇬 PROXY = select, IPV4, IPV6
+
+AsianTV = select, DIRECT, hidden=true
+Telegram = select, Proxy, hidden=true
+Speedtest = select, Proxy, hidden=true
+Domestic = select, DIRECT, hidden=true
+
+Apple = select, DIRECT, Proxy
+Others = select, Proxy, hidden=true

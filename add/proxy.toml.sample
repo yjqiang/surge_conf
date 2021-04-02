@@ -1,0 +1,7 @@
+[Proxy]
+🚀 Direct = direct
+IPV4 = custom, jjjj, 443, xchacha20-ietf-poly1305, jjj, http://example.com/, tfo=true
+IPV6 = custom, hhh, 443, xchacha20-ietf-poly1305, jjj, http://example.com/, tfo=true
+MIX = custom, jjj, 56, xchacha20-ietf-poly1305, jjj, http://example.com/
+HK2 = custom, jjj, 76, xchacha20-ietf-poly1305, jjj, http://example.com/
+HK = custom, jjj, 98, xchacha20-ietf-poly1305, jjj, http://example.com/

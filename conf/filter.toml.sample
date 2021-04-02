@@ -1,0 +1,62 @@
+sort_keys = [
+    '[General]',
+    '[Replica]',
+    '[Proxy]',
+    '[Proxy Group]',
+    '[Script]',
+    '[Rule]',
+    '[Host]',
+    '[URL Rewrite]',
+    '[Header Rewrite]',
+    '[MITM]',
+]
+
+
+[addition]
+# group_name = [[str value], [类型(单数)]]
+'[Rule]' = [
+    [['RULE-SET,https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Surge%203/Provider/Reject.list, REJECT',], ['Rule']],
+]
+
+
+[delete]
+# group_name = [[匹配模式, param_name, value], [类型(单数或者复数)]]
+# 单数表示就删一个，复数表示多个
+'[Rule]' = [
+    [['equal', 'policy', 'Netflix',], ['Rules',]],
+    [['equal', 'policy', 'Spotify',], ['Rules',]],
+    [['equal', 'policy', 'Disney',], ['Rules',]],
+    [['equal', 'policy', 'Scholar',], ['Rules',]],
+    [['equal', 'policy', 'Microsoft',], ['Rules',]],
+    [['equal', 'policy', 'PayPal',], ['Rules',]],
+    [['equal', 'policy', 'Steam',], ['Rules',]],
+    [['equal', 'policy', 'GlobalTV',], ['Rules',]],
+    [['equal', 'policy', 'YouTube',], ['Rules',]],
+    [['in', 'matcher', 'Domestic%20IPs',], ['Rule',]],
+]
+
+'[General]' = [
+    [['equal', 'key', 'http-listen'], ['KeyValue',]],
+    [['equal', 'key', 'socks5-listen'], ['KeyValue',]],
+    [['equal', 'key', 'wifi-access-http-port'], ['KeyValue',]],
+    [['equal', 'key', 'wifi-access-socks5-port'], ['KeyValue',]],
+    [['equal', 'key', 'external-controller-access'], ['KeyValue',]],
+    [['in', 'value', 'wifi-assist',], ['Comment',]]
+]
+
+
+[replace]
+# group_name = [[param_name, value], [new_param_name, new_value], [类型(单数)]]
+# 类型对应；根据 param 与 value 进行匹配；根据 new_param_name 与 new_value 进行替换
+'[General]' = [
+    [['key', 'loglevel'], ['value', 'warning'], ['KeyValue']],
+    [['key', 'test-timeout'], ['value', '0.8'], ['KeyValue']],
+    [['key', 'allow-wifi-access'], ['value', 'false'], ['KeyValue']],
+]
+
+
+'[MITM]' = [
+    [['key', 'ca-passphrase'], ['value', 'C'], ['KeyValue',]],
+    [['key', 'ca-p12'], ['value', 'rJE='], ['KeyValue']],    
+]
+

@@ -1,0 +1,7 @@
+[urls]
+header = 'https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Surge%203/Head_v6.conf'
+rule = 'https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Surge%203/Rule.conf'
+script = 'https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Surge%203/Script.conf'
+mitm = 'https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Surge%203/MitM.conf'
+url_rewrite = 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/URL%20Rewrite.conf'
+header_rewrite = 'https://raw.githubusercontent.com/lhie1/Rules/master/Auto/Header%20Rewrite.conf'
