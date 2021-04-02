@@ -12,7 +12,8 @@ if __name__ == "__main__":
     
     for path in [setting.DOWNLOAD_PATH, setting.ADD_PATH]:
         for entity in scandir(path):
-            conf.update(parse.parse(entity.path))
+            if not entity.path.endswith('.sample'):
+                conf.update(parse.parse(entity.path))
     
     with open(f'{setting.CONF_PATH}/filter.toml', 'r', encoding='utf8') as f:
         filter = toml.load(f)
