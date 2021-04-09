@@ -10,11 +10,13 @@ import class_filter_conf
 if __name__ == "__main__":
     conf = dict()
     
+    # 暴力把下载的文件和用户自定义的文件加到一起，生成 conf
     for path in [setting.DOWNLOAD_PATH, setting.ADD_PATH]:
         for entity in scandir(path):
             if not entity.path.endswith('.sample'):
                 conf.update(parse.parse(entity.path))
     
+    # 根据 filter.toml 文件处理 conf
     with open(f'{setting.CONF_PATH}/filter.toml', 'r', encoding='utf8') as f:
         filter = toml.load(f)
     

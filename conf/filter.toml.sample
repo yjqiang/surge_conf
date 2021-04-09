@@ -13,14 +13,14 @@ sort_keys = [
 
 
 [addition]
-# group_name = [[str new_line], [类型(单数)]]
+# group_name = [[str new_line], [class_rule 类型(单数)]]
 '[Rule]' = [
     [['RULE-SET,https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Surge%203/Provider/Reject.list, REJECT',], ['Rule']],
 ]
 
 
 [delete]
-# group_name = [[匹配模式, param_name, param_value], [类型(单数或者复数)]]
+# group_name = [[匹配模式, param_name, param_value], [class_rule 类型(单数或者复数)]]
 # 单数表示就删一个，复数表示多个
 '[Rule]' = [
     [['equal', 'policy', 'Netflix',], ['Rules',]],
@@ -46,7 +46,7 @@ sort_keys = [
 
 
 [replace]
-# group_name = [[匹配模式, param_name, param_value], [str new_line], [类型(单数)]]
+# group_name = [[匹配模式, param_name, param_value], [str new_line], [class_rule 类型(单数)]]
 # 类型对应；根据 param 与 value 进行匹配；根据 new_line 进行替换
 '[General]' = [
     [['equal', 'key', 'loglevel'], ['loglevel=warning'], ['KeyValue']],

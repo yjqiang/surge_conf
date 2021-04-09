@@ -3,7 +3,7 @@ import class_rule
 
 class Delete:
     def __init__(self, group_name: str, value: list):
-        # group_name = [[匹配模式, param_name, param_value], [类型(单数或者复数)]]
+        # group_name = [[匹配模式, param_name, param_value], [class_rule 类型(单数或者复数)]]
         # 单数表示就删一个，复数表示多个
         class_name = value[-1][0]
         pattern, self.param_name, self.param_value = value[0]
@@ -25,6 +25,7 @@ class Delete:
     def _match_equal(self, orig) -> bool:
         return self.param_value == getattr(orig, self.param_name)
         
+    # 仅删除一个
     def _delete_one(self, conf: dict):
         cur = conf[self.group_name]
 
@@ -35,13 +36,14 @@ class Delete:
                 count += 1
         assert count == 1
         
+    # 管他三七二十一全删了
     def _delete_all(self, conf: dict):
         conf[self.group_name] = [ele for ele in conf[self.group_name] if not (isinstance(ele, self.type) and self.match(ele))]
         
 
 class Replace:
     def __init__(self, group_name: str, value: list):
-        # group_name = [[匹配模式, param_name, param_value], [str new_line], [类型(单数)]]
+        # group_name = [[匹配模式, param_name, param_value], [str new_line], [class_rule 类型(单数)]]
         self.type = class_rule.CLASSES.get(value[-1][0], class_rule.DEFAULT)
         pattern, self.param_name, self.param_value = value[0]
         self.new_line = value[1][0]
@@ -69,7 +71,7 @@ class Replace:
 
 class Addition:
     def __init__(self, group_name: str, value: list):
-        # group_name = [[str new_line], [类型(单数)]]
+        # group_name = [[str new_line], [class_rule 类型(单数)]]
         self.new_line = class_rule.CLASSES.get(value[-1][0], class_rule.DEFAULT)(value[0][0])
         self.group_name = group_name
         

@@ -115,8 +115,8 @@ def inheritors(klass):
     return list(subclasses)
 
 
-GUIED = dict()
-CLASSES = dict()
+GUIED = dict()  # key 为 surge 中 group 名字(写在了 class 的类变量 NAME 里面)，value 为对应 class
+CLASSES = dict()  # key 为 class 名字，value 为对应 class
 DEFAULT = Default
 # 列出使用特别的 class，把 name 等与之绑定
 for special_class in inheritors(Base):
