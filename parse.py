@@ -18,7 +18,7 @@ def parse(path: str) -> dict:
             elif name in class_rule.GUIED:
                 conf[name].append(class_rule.GUIED[name](line))
             else:
-                conf[name].append(line)
+                conf[name].append(class_rule.DEFAULT(line))
                 print(name, line)
     
     return conf

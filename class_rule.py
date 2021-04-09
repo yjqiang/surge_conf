@@ -92,6 +92,16 @@ class HeaderRewrite(Base):
         return f'{self.exp} {self.rule_type} {self.field}'
         
 
+class Default(Base):
+    NAMES = []
+    
+    def __init__(self, line: str):
+        self.value = line
+        
+    def __str__(self):
+        return self.value
+        
+
 # https://stackoverflow.com/questions/5881873/python-find-all-classes-which-inherit-from-this-one
 def inheritors(klass):
     subclasses = set()
@@ -107,6 +117,7 @@ def inheritors(klass):
 
 GUIED = dict()
 CLASSES = dict()
+DEFAULT = Default
 # 列出使用特别的 class，把 name 等与之绑定
 for special_class in inheritors(Base):
     CLASSES[special_class.__name__] = special_class
