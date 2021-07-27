@@ -13,7 +13,7 @@ if __name__ == "__main__":
     # 暴力把下载的文件和用户自定义的文件加到一起，生成 conf
     for path in [setting.DOWNLOAD_PATH, setting.ADD_PATH]:
         for entity in scandir(path):
-            if not entity.path.endswith('.sample'):
+            if entity.path.endswith('.conf'):
                 conf.update(parse.parse(entity.path))
     
     # 根据 filter.toml 文件处理 conf
