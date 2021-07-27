@@ -27,8 +27,8 @@ def parse(path: str) -> dict:
 def write(conf: dict, path: str, sort_keys: list) -> None:
     with open(path, 'w', encoding='utf8') as f:
         for key in sort_keys:
-            f.write(f'{key}\n')
             if key in conf:
+                f.write(f'{key}\n')
                 for line in conf[key]:
                     f.write(f'{line}\n')
             f.write('\n')
