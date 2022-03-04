@@ -45,7 +45,14 @@ class Rule(Base):
     def __init__(self, line: str):
         # Each rule consists 3 parts
         # rule type, a traffic matcher (except for FINAL rule), and a proxy policy
-        rule_type, matcher, policy = [ele.strip() for ele in line.split(',')]
+        results = [ele.strip() for ele in line.split(',')]
+        # print(results)
+        assert len(results) == 3 or len(results) == 2
+        if len(results) == 3:
+            rule_type, matcher, policy = results
+        else:
+            rule_type, matcher = results
+            policy = None
         self.rule_type = rule_type
         self.matcher = matcher
         self.policy = policy

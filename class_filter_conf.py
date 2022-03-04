@@ -28,12 +28,14 @@ class Delete:
     # 仅删除一个
     def _delete_one(self, conf: dict):
         cur = conf[self.group_name]
+        
 
         count = 0
         for i, line in enumerate(cur):
             if isinstance(line, self.type) and self.match(line):
                 del cur[i]
                 count += 1
+
         assert count == 1
         
     # 管他三七二十一全删了

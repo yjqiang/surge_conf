@@ -14,6 +14,7 @@ if __name__ == "__main__":
     for path in [setting.DOWNLOAD_PATH, setting.ADD_PATH]:
         for entity in scandir(path):
             if entity.path.endswith('.conf'):
+                print(entity.path)
                 conf.update(parse.parse(entity.path))
     
     # 根据 filter.toml 文件处理 conf
@@ -28,9 +29,11 @@ if __name__ == "__main__":
     for control, values in filter['delete'].items():
         for value in values:
             delete = class_filter_conf.Delete(control, value)
+            # print(control, value)
+            # print()
             delete.operate(conf)
     
-    for control, values in filter['addition'].items():
+    for control, values in filter.get('addition', {}).items():
         for value in values:
             addition = class_filter_conf.Addition(control, value)
             addition.operate(conf)
