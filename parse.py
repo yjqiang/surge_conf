@@ -14,7 +14,7 @@ def parse(path: str) -> dict:
                 conf[name] = []
             # 注释
             elif not line or (line[:2] == '//' or line[0] == '#'):
-                conf[name].append(class_rule.Comment(line))
+                conf[name].append(class_rule.CommentRule(line))
             elif name in class_rule.GUIED:
                 conf[name].append(class_rule.GUIED[name](line))
             else:
